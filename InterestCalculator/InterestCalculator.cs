@@ -2,7 +2,7 @@
 
 namespace InterestCalculator
 {
-    internal class Program
+    public class InterestCalculatorClass
     {
         static float interestRate = 0f;
         static float initialAmount = 0f;
@@ -43,22 +43,24 @@ namespace InterestCalculator
            
             int numMonths = int.Parse(Console.ReadLine());
 
-            Calculate(numMonths, initialAmount, interestRate);
+            var value = Calculate(numMonths, initialAmount, interestRate);
 
+            Console.WriteLine(value);
             Console.Write("Press any key to continue...");
             Console.ReadKey();
         }
 
-        static void Calculate(int numMonths, float amount, float rate)
+        public static float Calculate(int numMonths, float amount, float rate)
         {
             float value = amount + (amount * rate);
 
-            Console.WriteLine(value);
+            Console.WriteLine(Math.Round(value*100) / 100);
 
             if (numMonths > 1)
             {
-                Calculate(numMonths-1, value, rate);
+                value = Calculate(numMonths-1, value, rate);
             }
+            return (float)Math.Round(value*100) / 100;
         }
     }
 }
