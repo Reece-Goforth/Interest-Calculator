@@ -45,7 +45,6 @@ namespace InterestCalculator
 
             var value = Calculate(numMonths, initialAmount, interestRate);
 
-            Console.WriteLine(value);
             Console.Write("Press any key to continue...");
             Console.ReadKey();
         }
